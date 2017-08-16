@@ -1,0 +1,39 @@
+import React, { Component } from 'react';
+
+export default class Widget extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            city : props.location.city,
+            direction : props.weather.wind.direction,
+            speed: props.weather.wind.speed,
+            humidity: props.weather.atmosphere.humidity,
+            pressure: props.weather.atmosphere.pressure
+        }
+    }
+
+    render(){
+        return(
+            <div class="widget-container">
+                <bold>{this.state.city}</bold>
+                <hr/>
+                    <table>
+                        <tr>Wind</tr>
+                        <tr>
+                            <td>Direction</td>
+                            <td>{this.state.direction}</td>
+                            <td>Speed</td>
+                            <td>{this.state.speed}</td>
+                        </tr>
+                        <tr>Atmosphere</tr>
+                        <tr>
+                            <td>Humedity</td>
+                            <td>{this.state.humidity}</td>
+                            <td>Pressure</td>
+                            <td>{this.state.pressure}</td>
+                        </tr>
+                    </table>
+            </div>
+        );
+    }
+}
